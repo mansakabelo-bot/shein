@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHEIN is Giving Away FREE Clothes - Claim Yours Now!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #ff6b9d 0%, #c44569 50%, #8e44ad 100%);
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .sparkles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .sparkle {
+            position: absolute;
+            font-size: 20px;
+            animation: sparkleFloat 4s infinite;
+        }
+        
+        @keyframes sparkleFloat {
+            0% {
+                transform: translateY(0) scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5) rotate(180deg);
+                opacity: 0;
+            }
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 4px solid #ff6b9d;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨ ✨';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 8px 0;
+            background: linear-gradient(90deg, #ff6b9d, #c44569, #8e44ad);
+            color: white;
+            font-size: 18px;
+            animation: scroll 15s linear infinite;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .shein-logo {
+            font-size: 56px;
+            font-weight: 900;
+            color: #000;
+            margin: 30px 0 15px 0;
+            letter-spacing: 8px;
+            text-shadow: 3px 3px 0px #ff6b9d;
+        }
+        
+        .announcement {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 18px;
+            display: inline-block;
+            margin: 15px 0;
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
+            border: 3px solid #000;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .location-tag {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 25px;
+            font-size: 17px;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.5);
+        }
+        
+        h1 {
+            color: #000;
+            font-size: 32px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            text-align: center;
+        }
+        
+        .highlight {
+            color: #ff6b9d;
+            font-weight: bold;
+        }
+        
+        .offer-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .offer-amount {
+            font-size: 64px;
+            font-weight: bold;
+            margin: 15px 0;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .offer-subtitle {
+            font-size: 18px;
+            margin-top: 10px;
+            opacity: 0.95;
+        }
+        
+        .countdown-box {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(238, 90, 111, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+        
+        .countdown {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Courier New', monospace;
+        }
+        
+        .steps {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            font-size: 17px;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+        }
+        
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            padding: 22px;
+            border: none;
+            border-radius: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+        }
+        
+        .featured-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .item-card {
+            background: #fff;
+            border: 2px solid #ff6b9d;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.2);
+        }
+        
+        .item-emoji {
+            font-size: 40px;
+            margin: 10px 0;
+        }
+        
+        .item-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .reviews-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .review {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ff6b9d;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            margin-right: 12px;
+        }
+        
+        .review-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .review-stars {
+            color: #ffd700;
+            font-size: 16px;
+            margin-top: 3px;
+        }
+        
+        .review-text {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+        
+        .social-proof {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: white;
+            padding: 18px 22px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            max-width: 340px;
+            animation: slideIn 0.5s ease-out;
+            border-left: 5px solid #ff6b9d;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(-120%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        .social-proof.hide {
+            animation: slideOut 0.5s ease-out forwards;
+        }
+        
+        @keyframes slideOut {
+            to {
+                transform: translateX(-120%);
+                opacity: 0;
+            }
+        }
+        
+        .proof-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .proof-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            margin-right: 12px;
+        }
+        
+        .proof-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 15px;
+        }
+        
+        .proof-location {
+            color: #666;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+        
+        .proof-message {
+            color: #666;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        
+        .spots-box {
+            background: #fff3cd;
+            border: 3px solid #ffc107;
+            color: #856404;
+            padding: 18px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            margin: 25px 0;
+            font-size: 17px;
+        }
+        
+        .disclaimer {
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            margin-top: 25px;
+            padding: 15px;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            .shein-logo {
+                font-size: 44px;
+            }
+            .offer-amount {
+                font-size: 52px;
+            }
+            .social-proof {
+                left: 10px;
+                right: 10px;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sparkles" id="sparkles"></div>
+
+    <div class="container">
+        <div class="header">
+            <div class="shein-logo">SHEIN</div>
+            <div class="announcement">🎁 FREE CLOTHES GIVEAWAY 🎁</div>
+        </div>
+
+        <div class="main-content">
+            <div class="location-tag" id="locationTag">
+                📍 <span id="locationText">Available in Your Area!</span>
+            </div>
+
+            <h1>Get <span class="highlight">FREE SHEIN Clothes</span> Delivered to Your Door! 👗✨</h1>
+
+            <div class="offer-box">
+                <div style="font-size: 20px; margin-bottom: 10px;">💝 EXCLUSIVE OFFER</div>
+                <div class="offer-amount">$750</div>
+                <div class="offer-subtitle">Worth of FREE SHEIN Fashion!</div>
+            </div>
+
+            <div class="countdown-box">
+                <div style="font-size: 19px; margin-bottom: 10px;">⏰ HURRY! Offer Ends In:</div>
+                <div class="countdown" id="countdown">00:00:00</div>
+                <div style="font-size: 14px; margin-top: 12px;">Limited spots available - Claim yours now!</div>
+            </div>
+
+            <div class="spots-box">
+                🔥 Only <span id="spotsRemaining">38</span> spots left for <span id="locationCity">your city</span>!
+            </div>
+
+            <div class="featured-items">
+                <div class="item-card">
+                    <div class="item-emoji">👗</div>
+                    <div class="item-name">Trendy Dresses</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-emoji">👖</div>
+                    <div class="item-name">Jeans & Pants</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-emoji">👕</div>
+                    <div class="item-name">Cute Tops</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-emoji">👚</div>
+                    <div class="item-name">Activewear</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-emoji">🧥</div>
+                    <div class="item-name">Jackets</div>
+                </div>
+                <div class="item-card">
+                    <div class="item-emoji">👠</div>
+                    <div class="item-name">Accessories</div>
+                </div>
+            </div>
+
+            <a href="https://uplevelrewarded.com/aff_c?offer_id=76&aff_id=14596" class="cta-button">
+                ✨ Claim My FREE SHEIN Clothes Now! →
+            </a>
+
+            <div class="steps">
+                <h3 style="color: #000; margin-bottom: 20px; text-align: center; font-size: 22px;">How It Works:</h3>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>Click the button above to start</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>Complete a quick verification (takes 2 minutes)</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>Choose your favorite SHEIN items</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div>Get FREE clothes delivered to your door! 📦</div>
+                </div>
+            </div>
+
+            <div class="reviews-section">
+                <h3 style="color: #000; margin-bottom: 20px; text-align: center; font-size: 22px;">What People Are Saying:</h3>
+
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-avatar">M</div>
+                        <div>
+                            <div class="review-name">Madison K.</div>
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <div class="review-text">"OMG! I just got $750 worth of SHEIN clothes for FREE! The dresses are so cute and fit perfectly. This is legit!" 💕</div>
+                </div>
+
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-avatar">A</div>
+                        <div>
+                            <div class="review-name">Ashley T.</div>
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <div class="review-text">"I was skeptical at first but WOW! Got a whole new wardrobe delivered. The quality is amazing and it was actually free!" ✨</div>
+                </div>
+
+                <div class="review">
+                    <div class="review-header">
+                        <div class="review-avatar">S</div>
+                        <div>
+                            <div class="review-name">Sophia L.</div>
+                            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                    <div class="review-text">"Best thing ever! Took only 5 minutes to claim and my package arrived in 3 days. Thank you SHEIN!" 🎉</div>
+                </div>
+            </div>
+
+            <a href="https://uplevelrewarded.com/aff_c?offer_id=76&aff_id=14596" class="cta-button">
+                🛍️ Yes! I Want FREE SHEIN Clothes! →
+            </a>
+
+            <div class="disclaimer">
+                This is a limited-time promotional offer. Participants must complete sponsor requirements to receive free merchandise. Not affiliated with SHEIN corporate. Terms and conditions apply. Offer subject to availability.
+            </div>
+        </div>
+    </div>
+
+    <div class="social-proof" id="socialProof" style="display: none;">
+        <div class="proof-header">
+            <div class="proof-icon">✓</div>
+            <div>
+                <div class="proof-name" id="proofName"></div>
+                <div class="proof-location" id="proofLocation"></div>
+            </div>
+        </div>
+        <div class="proof-message" id="proofMessage"></div>
+    </div>
+
+    <script>
+        // Create sparkles
+        function createSparkles() {
+            const container = document.getElementById('sparkles');
+            const sparkleSymbols = ['✨', '💖', '👗', '🎀', '💕', '⭐'];
+
+            for (let i = 0; i < 30; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.textContent = sparkleSymbols[Math.floor(Math.random() * sparkleSymbols.length)];
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 4 + 's';
+                sparkle.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                container.appendChild(sparkle);
+            }
+        }
+        createSparkles();
+
+        // Geolocation
+        function updateLocation() {
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    const city = data.city || 'Your City';
+                    const state = data.region || '';
+                    const locationText = state ? `${city}, ${state}` : city;
+                    document.getElementById('locationText').textContent =
+                        `Available in ${locationText}!`;
+                    document.getElementById('locationCity').textContent = city;
+                })
+                .catch(() => {
+                    document.getElementById('locationText').textContent =
+                        'Available in Your Area!';
+                    document.getElementById('locationCity').textContent = 'your city';
+                });
+        }
+        updateLocation();
+
+        // Countdown timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const savedEndTime = localStorage.getItem('sheinCountdownEnd');
+
+            let endTime;
+            if (savedEndTime) {
+                endTime = parseInt(savedEndTime);
+            } else {
+                endTime = now + (24 * 60 * 60 * 1000);
+                localStorage.setItem('sheinCountdownEnd', endTime);
+            }
+
+            function update() {
+                const currentTime = new Date().getTime();
+                const distance = endTime - currentTime;
+
+                if (distance < 0) {
+                    endTime = currentTime + (24 * 60 * 60 * 1000);
+                    localStorage.setItem('sheinCountdownEnd', endTime);
+                }
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').textContent =
+                    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+
+            update();
+            setInterval(update, 1000);
+        }
+        updateCountdown();
+
+        // Spots remaining
+        let spots = Math.floor(Math.random() * 25) + 25;
+        document.getElementById('spotsRemaining').textContent = spots;
+
+        setInterval(() => {
+            if (spots > 15 && Math.random() > 0.65) {
+                spots--;
+                document.getElementById('spotsRemaining').textContent = spots;
+            }
+        }, 20000);
+
+        // Social proof notifications
+        const names = [
+            'Emma S.', 'Olivia R.', 'Ava M.', 'Isabella P.', 'Sophia W.',
+            'Mia L.', 'Charlotte H.', 'Amelia K.', 'Harper G.', 'Evelyn D.',
+            'Abigail F.', 'Emily C.', 'Ella B.', 'Scarlett J.', 'Grace N.',
+            'Chloe V.', 'Victoria A.', 'Riley T.', 'Aria E.', 'Luna Z.'
+        ];
+
+        const cities = [
+            'Los Angeles, CA', 'New York, NY', 'Miami, FL', 'Chicago, IL',
+            'Houston, TX', 'Phoenix, AZ', 'Dallas, TX', 'Austin, TX',
+            'Atlanta, GA', 'Boston, MA', 'Seattle, WA', 'Denver, CO',
+            'Portland, OR', 'Las Vegas, NV', 'San Diego, CA', 'Charlotte, NC'
+        ];
+
+        const messages = [
+            'Just claimed FREE SHEIN clothes! 💕',
+            'OMG this is real! Got my free outfit! ✨',
+            'Just got $750 in free SHEIN items! 👗',
+            'Can\'t believe this worked! Free clothes! 🎉',
+            'Just claimed my free SHEIN haul! 🛍️',
+            'This is amazing! Free fashion delivered! 💖'
+        ];
+
+        function showSocialProof() {
+            const proof = document.getElementById('socialProof');
+            const name = names[Math.floor(Math.random() * names.length)];
+            const location = cities[Math.floor(Math.random() * cities.length)];
+            const message = messages[Math.floor(Math.random() * messages.length)];
+
+            document.getElementById('proofName').textContent = name;
+            document.getElementById('proofLocation').textContent = location;
+            document.getElementById('proofMessage').textContent = message;
+
+            proof.style.display = 'block';
+            proof.classList.remove('hide');
+
+            setTimeout(() => {
+                proof.classList.add('hide');
+                setTimeout(() => {
+                    proof.style.display = 'none';
+                }, 500);
+            }, 5500);
+        }
+
+        // First notification after 3 seconds
+        setTimeout(showSocialProof, 3000);
+
+        // Then show every 8-14 seconds
+        setInterval(() => {
+            showSocialProof();
+        }, Math.random() * 6000 + 8000);
+    </script>
+</body>
+
+</html>
